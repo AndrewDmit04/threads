@@ -11,12 +11,14 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "../ui/textarea"
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import {useForm} from 'react-hook-form'
 import {zodResolver} from "@hookform/resolvers/zod"
 import { UserValidation } from '@/lib/validations/user'
 import Image from 'next/image'
 import * as z from 'zod'
+import { isBase64Image } from "@/lib/utils"
+import { useUploadThing } from "@/lib/uploadthing"
 
 interface Props {
     user: {
@@ -31,8 +33,8 @@ interface Props {
 }
 
 const AccountProfile = ({user, btnTitle} : Props) => {
-  console.log(user);
-
+  const [files,setFiles] = useState<File[]>([])
+  const {startUpload} = useUploadThing("media");
   const form = useForm({
     resolver : zodResolver(UserValidation),
     defaultValues : {
@@ -43,12 +45,35 @@ const AccountProfile = ({user, btnTitle} : Props) => {
     }
   });
 
-  const handleImage = (e : ChangeEvent,fieldChange : (value : string)=> void) => {
+  const handleImage = (e : ChangeEvent<HTMLInputElement>,fieldChange : (value : string)=> void) => {
     e.preventDefault();
+
+    const fileReader = new FileReader();
+    
+    if(e.target.files && e.target.files.length > 0){
+      const file = e.target.files[0]
+
+      setFiles(Array.from(e.target.files))
+
+      if(!file.type.includes('image')) return;
+
+      fileReader.onload = async (event) => {
+        const imageDataUrl = event.target?.result?.toString() || ''
+        fieldChange(imageDataUrl)
+      }
+      fileReader.readAsDataURL(file);
+    } 
   }
 
-  function onSubmit(values: z.infer<typeof UserValidation>) {
-    console.log(values)
+  const onSubmit = async (values: z.infer<typeof UserValidation>) => {
+    const blob = values.profile_photo;
+    const hasImageChanged = isBase64Image(blob);
+    if(hasImageChanged){
+      const imgRes = await startUpload(files)
+      if (imgRes && imgRes[0].fileUrl){
+        values.profile_photo = imgRes[0].fileUrl;
+      }
+    }
   }
   return (
     <Form {...form}>
