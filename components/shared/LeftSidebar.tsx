@@ -35,7 +35,7 @@ const LeftSidebar = () => {
 
       <div className="mt-10 px-6">
           <SignedIn>
-            <SignOutButton>
+            <SignOutButton redirectUrl='/sign-in'>
               <div className="flex cursor-pointer">
                 <Image
                   src='/assets/logout.svg'
@@ -47,7 +47,6 @@ const LeftSidebar = () => {
                 <p className="text-light-2 max-lg:hidden">Logout</p>
               </div>
             </SignOutButton>
-            
           </SignedIn>
         </div>
     </section>
