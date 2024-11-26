@@ -21,6 +21,7 @@ import { isBase64Image } from "@/lib/utils"
 import { useUploadThing } from "@/lib/uploadthing"
 import { updateUser } from "@/lib/actions/user.actions"
 import {usePathname, useRouter} from 'next/navigation'
+import { ClientUploadedFileData } from "uploadthing/types"
 interface Props {
     user: {
         id: string,
@@ -74,8 +75,8 @@ const AccountProfile = ({user, btnTitle} : Props) => {
     const hasImageChanged = isBase64Image(blob);
     if(hasImageChanged){
       const imgRes = await startUpload(files)
-      if (imgRes && imgRes.fileUrl){
-        values.profile_photo = imgRes.fileUrl;
+      if (imgRes && imgRes[0]?.fileUrl){
+        values.profile_photo = imgRes[0].fileUrl;
       }
     }
 
@@ -196,7 +197,7 @@ const AccountProfile = ({user, btnTitle} : Props) => {
                  />
               
               </FormControl>
-              
+              <FormMessage/>
             </FormItem>
           )}
         />

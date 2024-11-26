@@ -50,3 +50,19 @@ export async function updateUser({
   }
 }
 
+export async function fetchUser(userId : string){
+  try{
+    connectToDB();
+
+    return await User
+      .findOne({id : userId})
+      // .populate({
+      //   path : 'communities',
+      //   model : community
+      // })
+  }
+  catch(error : any){
+    console.log(`something went wrong ${error.message}`)
+  }
+}
+
