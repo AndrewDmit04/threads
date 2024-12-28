@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Threads Clone
 
-## Getting Started
+A full-stack application built with **Next.js 14**, **MongoDB**, **Clerk** for authentication, and **TailwindCSS** for responsive design. This project is designed to replicate the functionality of a modern social media platform with real-time event handling, file uploads, and scalable architecture.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Server-Side Rendering (SSR)** with Next.js 14 for optimized performance and SEO.
+- **MongoDB** for handling complex schemas and data population.
+- **Clerk** for user authentication and session management.
+- **TailwindCSS** for creating responsive and beautiful layouts.
+- **Webhooks** for real-time event handling.
+- **Zod** for data validation.
+- **React Hook Form** for efficient form management.
+- **File uploads** using UploadThing.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js 14, TailwindCSS, React
+- **Backend**: Next.js API Routes, MongoDB
+- **Authentication**: Clerk
+- **File Uploads**: UploadThing
+- **Data Validation**: Zod
+- **Form Management**: React Hook Form
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- Node.js (v16 or later)
+- MongoDB instance (you can use MongoDB Atlas for cloud-hosted databases)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Steps to Run Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AndrewDmit04/threads.git
+   cd threads
