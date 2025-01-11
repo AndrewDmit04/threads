@@ -15,7 +15,7 @@ A full-stack application built with **Next.js 14**, **MongoDB**, **Clerk** for a
 
 ## Tech Stack
 
-- **Frontend**: Next.js 14, TailwindCSS, React 15
+- **Frontend**: Next.js 14, TailwindCSS, React 18
 - **Backend**: Next.js API Routes, MongoDB
 - **Authentication**: Clerk
 - **File Uploads**: UploadThing
