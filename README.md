@@ -1,6 +1,6 @@
 # Threads Clone
 
-A full-stack application built with **Next.js 14**, **MongoDB**, **Clerk** for authentication, and **TailwindCSS** for responsive design. This project is designed to replicate the functionality of a modern social media platform with real-time event handling, file uploads, and scalable architecture.
+A fullstack application built with **Next.js 14**, **MongoDB**, **Clerk** for authentication, and **TailwindCSS** for responsive design. This project is designed to replicate the functionality of a modern social media platform with real-time event handling, file uploads, and scalable architecture.
 
 ## Features
 
